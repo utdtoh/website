@@ -79,6 +79,10 @@ html, body {
 .nav-links a:hover {
   background: rgba(0,0,0,0.05);
 }
+
+.nav-links a:not(.join-btn) {
+  transform: translateX(-6px);
+}
 .join-btn {
   background: #F0B9D2;
   color: white !important;
@@ -86,10 +90,13 @@ html, body {
   border-radius: 999px;
   font-weight: 700;
 }
-.join-btn:hover {
-  background: #F0B9D2;
+.nav-links .join-btn:hover {
+  background: #f2c3d9;
 }
 .join-btn:active {
+  transform: translateY(1px);
+}
+.projects-btn:active {
   transform: translateY(1px);
 }
 .content-main {
@@ -135,6 +142,9 @@ html, body {
   .nav-links {
     transform: translateY(6px);
   }
+  .nav-links a:not(.join-btn) {
+    transform: translateX(-4px);
+  }
 }
 
 .card {
@@ -177,7 +187,7 @@ html, body {
 .hero-title {
   position: fixed;
   left: calc(10%);
-  top: calc(50% - 100px);
+  top: calc(50% - 140px);
   transform: translateY(-50%);
   margin: 0;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
@@ -192,10 +202,83 @@ html, body {
   text-align: left;
 }
 
+.hero-subtitle {
+  position: fixed;
+  left: calc(10%);
+  top: calc(50% + 40px);
+  transform: translateY(-50%);
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-weight: 400;
+  color: #000000;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-line;
+  z-index: 160;
+  pointer-events: none;
+  text-align: left;
+}
+
+.hero-button-container  {
+  position: fixed;
+  left: calc(10%);
+  top: calc(50% + 130px);
+  transform: translateY(-50%);
+  display: flex;
+  gap: 24px;
+  z-index: 160;
+  transition: background 0.2s ease;
+}
+
+.hero-button-container .join-btn {
+  pointer-events: auto;
+  padding: 10px 12px;
+  font-weight: 700;
+  z-index: 160;
+  text-decoration: none;
+  display: inline-block;
+  text-align: left;
+  border-radius: 10px;
+}
+
+.hero-button-container .join-btn:hover {
+  background: #f2c3d9;
+}
+
+.hero-button-container .projects-btn {
+  pointer-events: auto;
+  color: #000000;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  background: transparent;
+  z-index: 160;
+}
+
+.hero-button-container .projects-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.home-button {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 280px;
+  height: 60px;
+  background: transparent;
+  cursor: pointer;
+  z-index: 300;
+}
+
 @media (max-width: 1000px) {
   .hero-title { left: calc(50% - 300px); }
+  .hero-subtitle { left: calc(50% - 300px); }
 }
 
 @media (max-width: 680px) {
   .hero-title { display: none; }
+  .hero-subtitle { display: none; }
 }

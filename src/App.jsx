@@ -13,8 +13,28 @@ function App() {
     <>
       <img src={bigLogo} alt="Threads of Hope" className="topleft-image" />
 
-      <h1 className="hero-title">Crocheting comfort for<br />
-        hospitals &amp; homes.</h1>
+      <Link to="/" className="home-button" aria-label='Go to homepage'></Link>
+
+      <h1 className="hero-title">
+        Crocheting comfort for<br />
+        hospitals &amp; homes.
+        </h1>
+      <p className="hero-subtitle">
+        Student run at UTD, we make and donates various crochet items<br />
+        for hospitals, nursing homes, and many more! Join a workshop<br />
+        or donate to support our cause!
+      </p>
+
+      <div className='hero-button-container'>
+        <Link to="/join" className="join-btn">
+          Join a Workshop
+        </Link>
+
+        <Link to="/projects" className="projects-btn">
+          See our Projects
+        </Link>
+      </div>
+
       <img src={smallLogo} alt="Threads of Hope" className="center-image" />
 
       <header className="header-fixed">
