@@ -30,11 +30,17 @@
   }
 }
 html, body {
-  background: #F4F4F4 !important;
+  background: #f7f7f7ff !important;
   min-height: 100vh;
   width: 100vw;
   margin: 0;
   padding: 0;
+}
+
+.main-scroll {
+  height: 200vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
 :root, html, body, #root {
@@ -99,6 +105,9 @@ html, body {
 .projects-btn:active {
   transform: translateY(1px);
 }
+.donate-btn:active {
+  transform: translateY(1px);
+}
 .content-main {
   padding-top: 88px;
 }
@@ -156,16 +165,64 @@ html, body {
 }
 
 .center-logo, .center-image {
-  position: fixed;
-  left: calc(50% + 400px);
-  top: calc(50% - 100px);
-  transform: translate(-50%, -50%);
-  width: min(45vmin, 560px);
+  position: static;
+  transform: translate(-1%, -50%);
+  width: min(50vmin, 560px);
   height: auto;
-  z-index: 150;
   pointer-events: none;
   opacity: 0.98;
   filter: drop-shadow(0 12px 40px rgba(0,0,0,0.12));
+}
+
+.logo-and-donation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  left: 75%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 150;
+}
+
+.donation-container {
+  width: 100%;
+  background-color: white;
+  margin: -180px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  color: #111;
+}
+
+.donate-btn {
+  pointer-events: auto;
+  color: #000000;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+}
+
+.donate-btn:focus {
+  outline: none;
+  box-shadow: none; 
+}
+
+.donate-btn:focus-visible {
+  outline: none;
+}
+
+.donate-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
 }
 
 @media (max-width: 800px) {
@@ -187,7 +244,7 @@ html, body {
 .hero-title {
   position: fixed;
   left: calc(10%);
-  top: calc(50% - 140px);
+  top: calc(50% - 110px);
   transform: translateY(-50%);
   margin: 0;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
@@ -205,7 +262,7 @@ html, body {
 .hero-subtitle {
   position: fixed;
   left: calc(10%);
-  top: calc(50% + 40px);
+  top: calc(50% + 50px);
   transform: translateY(-50%);
   margin: 0;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
@@ -223,7 +280,7 @@ html, body {
 .hero-button-container  {
   position: fixed;
   left: calc(10%);
-  top: calc(50% + 130px);
+  top: calc(50% + 140px);
   transform: translateY(-50%);
   display: flex;
   gap: 24px;
@@ -234,23 +291,25 @@ html, body {
 .hero-button-container .join-btn {
   pointer-events: auto;
   padding: 10px 12px;
-  font-weight: 700;
+  font-weight: 600;
   z-index: 160;
   text-decoration: none;
   display: inline-block;
   text-align: left;
   border-radius: 10px;
+  background: #F0B9D2;
+  color: white !important;
 }
 
 .hero-button-container .join-btn:hover {
   background: #f2c3d9;
 }
 
-.hero-button-container .projects-btn {
+.projects-btn {
   pointer-events: auto;
   color: #000000;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   padding: 8px 12px;
   border-radius: 6px;
   display: inline-block;
@@ -258,8 +317,9 @@ html, body {
   z-index: 160;
 }
 
-.hero-button-container .projects-btn:hover {
+.projects-btn:hover {
   background: rgba(0, 0, 0, 0.05);
+  color: #000000;
 }
 
 .home-button {
@@ -281,4 +341,39 @@ html, body {
 @media (max-width: 680px) {
   .hero-title { display: none; }
   .hero-subtitle { display: none; }
+}
+
+.down-arrow-container {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  z-index: 300;
+  display: flex;
+  justify-content: center;
+}
+
+.down-arrow {
+  font-size: 2.5rem;
+  color: #111;
+  animation: bounce 1.5s infinite;
+  user-select: none;
+  display: inline-block;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(8px);
+  }
+  60% {
+    transform: translateY(4px);
+  }
+}
+
+.blank-page {
+  background: white;
 }

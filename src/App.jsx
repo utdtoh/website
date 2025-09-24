@@ -7,8 +7,15 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Events from './pages/Events';
 import Join from './pages/Join';
+import { useRef } from 'react';
 
 function App() {
+  const blankPageRef = useRef(null);
+
+  const scrollToBlank = () => {
+    blankPageRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <>
       <img src={bigLogo} alt="Threads of Hope" className="topleft-image" />
@@ -35,7 +42,16 @@ function App() {
         </Link>
       </div>
 
-      <img src={smallLogo} alt="Threads of Hope" className="center-image" />
+      <div className='logo-and-donation'>
+        <img src={smallLogo} alt="Threads of Hope" className="center-image" />
+
+        <div className='donation-container'>
+          <h2>Support our Cause!</h2>
+          <p>We accept Paypal, Zelle, and cash donations<br />
+          for our various charity drives.</p>
+          <button className='donate-btn'>Donate</button>
+        </div>
+      </div>
 
       <header className="header-fixed">
         <nav className="nav-links">
@@ -53,6 +69,12 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/join" element={<Join />} />
       </Routes>
+
+      <div className="down-arrow-container" onClick={scrollToBlank}>
+        <span className="down-arrow">↓</span>
+      </div>
+
+      <div ref={blankPageRef} className="blank-page"></div>
     </>
   );
 }
