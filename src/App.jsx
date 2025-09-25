@@ -27,7 +27,7 @@ function App() {
         hospitals &amp; homes.
         </h1>
       <p className="hero-subtitle">
-        Student run at UTD, we make and donates various crochet items<br />
+        We are a student ran organization at UTD. We make and donate various crochet items<br />
         for hospitals, nursing homes, and many more! Join a workshop<br />
         or donate to support our cause!
       </p>
